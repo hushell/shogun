@@ -36,8 +36,7 @@ public:
 	 * @param card cardinalities of variables in the clique
 	 * @param w factor parameters
 	 */
-	CFactorType(const int32_t id, const SGVector<int32_t> card,
-		const SGVector<float64_t> w = SGVector<float64_t>());
+	CFactorType(int32_t id, SGVector<int32_t> card, SGVector<float64_t> w);
 
 	/** deconstructor */
 	virtual ~CFactorType();
@@ -130,8 +129,7 @@ public:
 	 * @param card cardinalities of variables in the clique
 	 * @param w factor parameters
 	 */
-	CTableFactorType(const int32_t id, const SGVector<int32_t> card,
-		const SGVector<float64_t> w = SGVector<float64_t>());
+	CTableFactorType(int32_t id, SGVector<int32_t> card, SGVector<float64_t> w);
 
 	/** deconstructor */
 	virtual ~CTableFactorType();
@@ -165,8 +163,7 @@ public:
 	 * @param var_state new variable state 
 	 * @return new energy index 
 	 */
-	int32_t index_from_new_state(int32_t old_ei, int32_t var_index, 
-		int32_t var_state) const;
+	int32_t index_from_new_state(int32_t old_ei, int32_t var_index, int32_t var_state) const;
 
 	/** energy index from a given assignment
 	 *
@@ -181,7 +178,7 @@ public:
 	 * @param var_index variable indices of that particular factor
 	 * @return energy index
 	 */
-	int32_t index_from_universe_assignment(const SGVector<int32_t> assig,
+	int32_t index_from_universe_assignment(const SGVector<int32_t> assig, \
 		const SGVector<int32_t> var_index) const;
 
 	/** compute energy values from parameters for a specific factor.
@@ -189,7 +186,7 @@ public:
 	 * @param factor_data dense factor data vector 
 	 * @param energies forwarded energy table
 	 */
-	virtual void compute_energies(const SGVector<float64_t> factor_data,
+	virtual void compute_energies(const SGVector<float64_t> factor_data, \
 		SGVector<float64_t>& energies) const;
 
 	/** Compute energy values from parameters for a specific factor.
@@ -197,7 +194,7 @@ public:
 	 * @param factor_data_sparse sparse factor data
 	 * @param energies forwarded energy table
 	 */
-	virtual void compute_energies(const SGSparseVector<float64_t> factor_data_sparse,
+	virtual void compute_energies(const SGSparseVector<float64_t> factor_data_sparse, \
 		SGVector<float64_t>& energies) const;
 
 	/** compute parameter gradient from marginals and factor data
@@ -207,8 +204,8 @@ public:
 	 * @param parameter_gradient gradient of factor parameters
 	 * @param mult multiplier 
 	 */
-	virtual void compute_gradients(const SGVector<float64_t> factor_data,
-		const SGVector<float64_t> marginals,
+	virtual void compute_gradients(const SGVector<float64_t> factor_data, \
+		const SGVector<float64_t> marginals, \
 		SGVector<float64_t>& parameter_gradient, double mult) const;
 
 	/** compute parameter gradient from marginals and factor data
@@ -218,8 +215,8 @@ public:
 	 * @param parameter_gradient gradient of factor parameters
 	 * @param mult multiplier
 	 */
-	virtual void compute_gradients(const SGSparseVector<float64_t> factor_data_sparse,
-		const SGVector<float64_t> marginals,
+	virtual void compute_gradients(const SGSparseVector<float64_t> factor_data_sparse, \
+		const SGVector<float64_t> marginals, \
 		SGVector<float64_t>& parameter_gradient, double mult) const;
 
 };

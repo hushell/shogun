@@ -42,49 +42,49 @@ CFactor::CFactor(CTableFactorType* ftype,
 	SG_REF(m_data_source);
 }
 
-CFactor::CFactor(CTableFactorType* ftype,
-	SGVector<int32_t> var_index,
-	SGSparseVector<float64_t> data_sparse) : CSGObject()
-{
-	init();
-	m_factor_type = ftype;
-	m_var_index = var_index;
-	m_data_sparse = data_sparse;
-	m_is_data_dep = true;
-
-	ASSERT(ftype != NULL);
-	ASSERT(ftype->get_cardinalities().size() == m_var_index.size());
-
-	if (m_data_sparse.num_feat_entries == 0)
-		m_is_data_dep = false;
-
-	if (ftype->is_table() && m_is_data_dep)
-		m_energies.resize_vector(ftype->get_num_assignments());
-
-	SG_REF(m_factor_type);
-	SG_REF(m_data_source);
-}
-
-CFactor::CFactor(CTableFactorType* ftype,
-	SGVector<int32_t> var_index,
-	CFactorDataSource* data_source) : CSGObject()
-{
-	init();
-	m_factor_type = ftype;
-	m_var_index = var_index;
-	m_data_source = data_source;
-	m_is_data_dep = true;
-
-	ASSERT(ftype != NULL);
-	ASSERT(ftype->get_cardinalities().size() == m_var_index.size());
-	ASSERT(data_source != NULL);
-
-	if (ftype->is_table())
-		m_energies.resize_vector(ftype->get_num_assignments());
-
-	SG_REF(m_factor_type);
-	SG_REF(m_data_source);
-}
+//CFactor::CFactor(CTableFactorType* ftype,
+//	SGVector<int32_t> var_index,
+//	SGSparseVector<float64_t> data_sparse) : CSGObject()
+//{
+//	init();
+//	m_factor_type = ftype;
+//	m_var_index = var_index;
+//	m_data_sparse = data_sparse;
+//	m_is_data_dep = true;
+//
+//	ASSERT(ftype != NULL);
+//	ASSERT(ftype->get_cardinalities().size() == m_var_index.size());
+//
+//	if (m_data_sparse.num_feat_entries == 0)
+//		m_is_data_dep = false;
+//
+//	if (ftype->is_table() && m_is_data_dep)
+//		m_energies.resize_vector(ftype->get_num_assignments());
+//
+//	SG_REF(m_factor_type);
+//	SG_REF(m_data_source);
+//}
+//
+//CFactor::CFactor(CTableFactorType* ftype,
+//	SGVector<int32_t> var_index,
+//	CFactorDataSource* data_source) : CSGObject()
+//{
+//	init();
+//	m_factor_type = ftype;
+//	m_var_index = var_index;
+//	m_data_source = data_source;
+//	m_is_data_dep = true;
+//
+//	ASSERT(m_factor_type != NULL);
+//	ASSERT(m_factor_type->get_cardinalities().size() == m_var_index.size());
+//	ASSERT(m_data_source != NULL);
+//
+//	if (ftype->is_table())
+//		m_energies.resize_vector(ftype->get_num_assignments());
+//
+//	SG_REF(m_factor_type);
+//	SG_REF(m_data_source);
+//}
 
 CFactor::~CFactor()
 {

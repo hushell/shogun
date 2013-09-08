@@ -39,7 +39,7 @@ public:
 	 * @param labels pointer to structured outputs
 	 * @param inf_type MAP inference type, default is tree max-product inference
 	 */
-	CFactorGraphModel(CFeatures* features, CStructuredLabels* labels, 
+	CFactorGraphModel(CFeatures* features, CStructuredLabels* labels, \
 		EMAPInferType inf_type = TREE_MAX_PROD, bool verbose = false);
 
 	/** destructor */
@@ -144,12 +144,12 @@ public:
 	 * @param ub upper bounds for w
 	 * @param C  regularization matrix, w'Cw
 	 */
-	virtual void init_primal_opt(
-			float64_t regularization,
-			SGMatrix< float64_t > & A,  SGVector< float64_t > a,
-			SGMatrix< float64_t > B,  SGVector< float64_t > & b,
-			SGVector< float64_t > lb, SGVector< float64_t > ub,
-			SGMatrix < float64_t >  & C);
+	virtual void init_primal_opt( \
+		float64_t regularization, \
+		SGMatrix< float64_t > & A,  SGVector< float64_t > a, \
+		SGMatrix< float64_t > B,  SGVector< float64_t > & b, \
+		SGVector< float64_t > lb, SGVector< float64_t > ub, \
+		SGMatrix < float64_t >  & C);
 	
 	/**
 	 * return the dimensionality of the joint feature space, i.e.
