@@ -247,6 +247,9 @@ class CStructuredModel : public CSGObject
 		 */
 		virtual int32_t get_num_aux_con() const;
 
+		/** @return number of labels */
+		virtual int32_t get_num_labels() const;
+
 	private:
 		/** internal initialization */
 		void init();

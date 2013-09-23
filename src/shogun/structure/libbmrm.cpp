@@ -198,6 +198,7 @@ BmrmStatistics svm_bmrm_solver(
 	uint8_t S=1;
 	CStructuredModel* model=machine->get_model();
 	uint32_t nDim=model->get_dim();
+	int32_t nSamples = model->get_num_labels();
 	SG_UNREF(model);
 
 	CTime ttime;
@@ -479,7 +480,7 @@ BmrmStatistics svm_bmrm_solver(
 			sq_norm_Wdiff+=(W[j]-prevW[j])*(W[j]-prevW[j]);
 		}
 
-		bmrm.Fp=R+0.5*_lambda*sq_norm_W;
+		bmrm.Fp=R/nSamples + 0.5*_lambda*sq_norm_W;
 		bmrm.Fd=-qp_exitflag.QP;
 		wdist=CMath::sqrt(sq_norm_Wdiff);
 

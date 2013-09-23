@@ -161,3 +161,7 @@ int32_t CStructuredModel::get_num_aux_con() const
 	return 0;
 }
 
+int32_t CStructuredModel::get_num_labels() const
+{
+	return dynamic_cast<CStructuredLabels*>(m_labels)->get_num_labels();
+}
